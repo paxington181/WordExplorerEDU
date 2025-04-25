@@ -8,11 +8,16 @@ import random
 main_window = tk.Tk()
 main_window.title("Word Explorer")
 
-menu = Menu(main_window)
-main_window.config(menu = menu)
-help_menu = Menu(main_window)
-menu.add_cascade(label = "Help", menu = help_menu)
-help_menu.add_command(label = "About")
+guess_box = Listbox(main_window)
+guess_box.grid(row = 0, column = 1)
+
+word_definition = Text(main_window)
+
+Label(main_window, text = "Guess").grid(row = 1, column = 2)
+word_entry = Entry(main_window)
+word_entry.grid(row = 1, column = 3)
+
+
 
 
 
