@@ -4,15 +4,29 @@ from tkinter import ttk
 
 import random
 
-back_ground = "dimgrey"
-word_definition = "Placeholder text that will be later filled with a definition once I go from rigging my UI to making the UI actually work"
+KEYBOARD1 = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"]
+KEYBOARD2 = ["a", "s", "d", "f", "g", "h", "j", "k", "l"]
+KEYBOARD3 = ["z", "x", "c", "v", "b", "n", "m", "'", "-"]
 
-keyboard1 = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"]
-keyboard2 = ["a", "s", "d", "f", "g", "h", "j", "k", "l"]
-keyboard3 = ["z", "x", "c", "v", "b", "n", "m"]
+
+back_ground = "dimgrey"
+button_background = {}
+
+def button_background_builder():
+    for key in KEYBOARD1:
+        button_background[key] = "lightgrey"
+    for key2 in KEYBOARD2:
+        button_background[key2] = "lightgrey"
+    for key3 in KEYBOARD3:
+        button_background[key3] = "lightgrey"
+    return button_background
+
+button_background_builder()
+
+word_definition = "Placeholder text that will be later filled with a definition once I go from rigging my UI to making the UI pretty"
 
 main_window = tk.Tk()
-main_window.geometry("800x400")
+main_window.geometry("900x400")
 main_window.configure(bg = back_ground)
 main_window.title("Word Explorer")
 
@@ -31,20 +45,20 @@ submit_button = tk.Button(main_window, bg = back_ground, text = "Guess word", wi
 submit_button.grid(row = 2, column = 2)
 
 column1 = 0
-for key in keyboard1:
-    key = tk.Button(main_window, bg = back_ground, text = key, width = 1)
+for key in KEYBOARD1:
+    key = tk.Button(main_window, bg = button_background[key], text = key, width = 1)
     key.grid(row = 3, column = column1)
     column1 += 1
 
 column2 = 0
-for key2 in keyboard2:
-    key2 = tk.Button(main_window, bg = back_ground, text = key2, width = 1)
+for key2 in KEYBOARD2:
+    key2 = tk.Button(main_window, bg = button_background[key2], text = key2, width = 1)
     key2.grid(row = 4, column = column2)
     column2 += 1
 
 column3 = 0
-for key3 in keyboard3:
-    key3 = tk.Button(main_window, bg = back_ground, text = key3, width = 1)
+for key3 in KEYBOARD3:
+    key3 = tk.Button(main_window, bg = button_background[key3], text = key3, width = 1)
     key3.grid(row = 5, column = column3)
     column3 += 1
 
