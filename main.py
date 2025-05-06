@@ -9,9 +9,18 @@ KEYBOARD2 = ["a", "s", "d", "f", "g", "h", "j", "k", "l"]
 KEYBOARD3 = ["z", "x", "c", "v", "b", "n", "m", "'", "-"]
 
 
-back_ground = "darkgreen"
-button_colour = "lightgreen"
+back_ground = "darkgray"
+button_colour = "lightgray"
 button_background = {}
+
+def read_wordlist():
+    pass
+
+def random_word():
+    pass
+
+def get_definition():
+    pass
 
 def button_background_builder():
     for key in KEYBOARD1:
@@ -34,8 +43,8 @@ def clear_entry():
 
 
 
-word_to_guess = "placeholder"
-word_definition = "Placeholder text that will be later filled with a definition once I go from rigging my UI to making the UI pretty"
+word_to_guess = "placeholder" #Call random_word
+word_definition = "Placeholder text that will be later filled with a definition once I go from rigging my UI to making the UI pretty" #Get definition from defition list
 
 main_window = tk.Tk()
 main_window.geometry("900x400")
@@ -48,6 +57,12 @@ guess_box.grid(row = 0, column = 1)
 word_definition_text = Text(main_window, height = 4, width = 30, bg = button_colour)
 word_definition_text.grid(row = 0, column = 2)
 word_definition_text.insert(tk.END, word_definition)
+
+letters_wrong_place = Listbox(main_window)
+letters_wrong_place.grid(row = 0, column = 3)
+
+wrong_letters = Listbox(main_window)
+wrong_letters.grid(row = 0, column = 4)
 
 Label(main_window, bg = back_ground, text = "Guess").grid(row = 1, column = 2)
 word_entry = Entry(main_window)
