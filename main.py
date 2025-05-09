@@ -4,9 +4,7 @@ from tkinter import *
 from tkinter import ttk
 
 
-KEYBOARD1 = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"]
-KEYBOARD2 = ["a", "s", "d", "f", "g", "h", "j", "k", "l"]
-KEYBOARD3 = ["z", "x", "c", "v", "b", "n", "m", "'", "-"]
+KEYBOARD = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", "'", "-"]
 
 
 back_ground = "darkgray"
@@ -23,12 +21,8 @@ def get_definition():
     pass
 
 def button_background_builder():
-    for key in KEYBOARD1:
+    for key in KEYBOARD:
         button_background[key] = button_colour
-    for key2 in KEYBOARD2:
-        button_background[key2] = button_colour
-    for key3 in KEYBOARD3:
-        button_background[key3] = button_colour
     return button_background
 
 button_background_builder()
@@ -74,22 +68,24 @@ submit_button.grid(row = 2, column = 2)
 clear_button = tk.Button(main_window, bg = button_colour, text = "Clear", width = 10, command = clear_entry)
 clear_button.grid(row = 2, column = 3)
 
-column1 = 0
-for key in KEYBOARD1:
+keycolumn = 0
+keyrow = 3
+for key in KEYBOARD:
     key = tk.Button(main_window, bg = button_background[key], text = key, width = 1, command = lambda k = key: add_letter(k))
-    key.grid(row = 3, column = column1, padx = 5, pady = 5)
-    column1 += 1
+    key.grid(row = keyrow, column = keycolumn, padx = 5, pady = 5)
+    if keycolumn < 10 and keyrow == 3:
+        keycolumn += 1
+        if keycolumn == 10:
+            keyrow += 1
+            keycolumn = 0
+    elif keycolumn < 9 and keyrow == 4:
+        keycolumn += 1
+        if keycolumn == 9:
+            keyrow += 1
+            keycolumn = 0
+    elif keyrow == 5:
+        keycolumn += 1
 
-column2 = 0
-for key2 in KEYBOARD2:
-    key2 = tk.Button(main_window, bg = button_background[key2], text = key2, width = 1, command = lambda k = key2: add_letter(k))
-    key2.grid(row = 4, column = column2, padx = 5, pady = 5)
-    column2 += 1
 
-column3 = 0
-for key3 in KEYBOARD3:
-    key3 = tk.Button(main_window, bg = button_background[key3], text = key3, width = 1, command= lambda k = key3: add_letter(k))
-    key3.grid(row = 5, column = column3, padx = 5, pady = 5)
-    column3 += 1
 
 main_window.mainloop()
