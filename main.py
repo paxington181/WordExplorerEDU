@@ -68,22 +68,24 @@ submit_button.grid(row = 2, column = 2)
 clear_button = tk.Button(main_window, bg = button_colour, text = "Clear", width = 10, command = clear_entry)
 clear_button.grid(row = 2, column = 3)
 
+keyboard_frame = tk.Frame(main_window, bg = back_ground)
+keyboard_frame.grid(row = 3, column = 0, columnspan = 5)
 keycolumn = 0
-keyrow = 3
+keyrow = 0
 for key in KEYBOARD:
-    key = tk.Button(main_window, bg = button_background[key], text = key, width = 1, command = lambda k = key: add_letter(k))
+    key = tk.Button(keyboard_frame, bg = button_background[key], text = key, width = 1, command = lambda k = key: add_letter(k))
     key.grid(row = keyrow, column = keycolumn, padx = 5, pady = 5)
-    if keycolumn < 10 and keyrow == 3:
+    if keycolumn < 10 and keyrow == 0:
         keycolumn += 1
         if keycolumn == 10:
             keyrow += 1
             keycolumn = 0
-    elif keycolumn < 9 and keyrow == 4:
+    elif keycolumn < 9 and keyrow == 1:
         keycolumn += 1
         if keycolumn == 9:
             keyrow += 1
             keycolumn = 0
-    elif keyrow == 5:
+    elif keyrow == 2:
         keycolumn += 1
 
 
