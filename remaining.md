@@ -3,8 +3,8 @@ rig guessword button
 rig dictionary box
 rig correct letters - change button colour
 rig incorrect place letters - change button colour
-add incorrectly placed letters box
-rig incorrect letters - change button colour and disable
+add incorrectly placed letters box - Left side of keyboard frame
+rig incorrect letters - change button colour and disable - place box of incorrect letters on right side of keyboard frame
 build list editor program
     read current words and display with dictionary
     remove words and dictionary entry with button press
