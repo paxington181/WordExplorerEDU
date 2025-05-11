@@ -1,6 +1,7 @@
 #If you are manually editing this, put w. before all words and d. before the dictionary entry for the word.  Keep them in pairs or you will get mismatched word and dictionary entries
 #Shorter definitions display better than long defintions.
-#If a line starts with a hashtag/pound symbol it will not show in the game.  
+#If a line starts with a hashtag/pound symbol it will not show in the game.  The blank line between instructions and list is actually important, blame Python list comprehension.
+
 w.apple
 d.a red fruit
 w.pear
