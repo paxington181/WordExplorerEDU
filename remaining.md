@@ -1,3 +1,4 @@
+Add weight to the RNG to focus on the newest batch of words added
 rig guesses box
 rig guessword button
 rig dictionary box
