@@ -10,10 +10,23 @@ KEYBOARD = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f"
 back_ground = "darkgray"
 button_colour = "lightgray"
 button_background = {}
+word_list = []
+definition_list = []
 
 def read_wordlist():
-    pass
+    with open("wordlist.txt") as file:
+        unmodified_wordlist = file.read().splitlines()
+        for line in unmodified_wordlist:
+            if line.startswith("#"):
+                unmodified_wordlist.remove(line)
+            elif line.startswith("w."):
+                word_list.append(line[2:])
+            elif line.startswith("d."):
+                definition_list.append(line[2:])
 
+read_wordlist()
+print(word_list)
+print(definition_list)
 def random_word():
     pass
 
