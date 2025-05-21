@@ -13,6 +13,7 @@ button_background = {}
 word_list = []
 definition_list = []
 
+
 def read_wordlist():
     with open("wordlist.txt") as file:
         unmodified_wordlist = file.read().splitlines()
@@ -25,13 +26,11 @@ def read_wordlist():
                 definition_list.append(line[2:])
 
 read_wordlist()
-print(word_list)
-print(definition_list)
-def random_word():
-    pass
 
-def get_definition():
-    pass
+def random_word():
+    return random.randomint(0, len(word_list) - 1)
+
+  
 
 def button_background_builder():
     for key in KEYBOARD:
@@ -48,10 +47,20 @@ def add_letter(let):
 def clear_entry():
     word_entry.delete(0, tk.END)    
 
+def set_word():
+    pass
 
+def def_check():
+    if len(word_list) is not len(definition_list):
+        word_definition = "Please check your wordlist, the number of words and definitions do not match"
+    elif len(word_list) == len(definition_list):
+        word_definition = "Placeholder text that will be later filled with a definition once I go from rigging my UI to making the UI pretty" #Get definition from defition list
+    return word_definition
 
 word_to_guess = "placeholder" #Call random_word
-word_definition = "Placeholder text that will be later filled with a definition once I go from rigging my UI to making the UI pretty" #Get definition from defition list
+word_definition = def_check()
+
+
 
 main_window = tk.Tk()
 main_window.geometry("900x400")
@@ -72,7 +81,7 @@ wrong_letters = Listbox(main_window)
 wrong_letters.grid(row = 0, column = 4)
 
 Label(main_window, bg = back_ground, text = "Guess").grid(row = 1, column = 2)
-word_entry = Entry(main_window)
+word_entry = tk.Entry(main_window)
 word_entry.grid(row = 1, column = 3)
 
 submit_button = tk.Button(main_window, bg = button_colour, text = "Guess word", width = 10)
